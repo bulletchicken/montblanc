@@ -4,7 +4,9 @@
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
   }
 
-
+  @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+  
 body {
     background: skyblue;
     
@@ -46,7 +48,7 @@ body {
 }
 
 #profilepic{
-    width:25%;
+    width:30%;
     border-radius: 100%;
 }
 
@@ -67,7 +69,7 @@ body {
   color: antiquewhite;         
   background-color: black;   
   opacity: 0.5;               
-  width: 30%;                 
+  width: 40%;                 
 
 }
 
@@ -140,11 +142,12 @@ a {
 
 body, html {
   height:100%;
+  font-family: 'Montserrat', sans-serif;
 
 }
 #titlecard{
   height:400vh;
-  font-family: "San Francisco";
+  font-family: 'Montserrat', sans-serif;
   font-size:100px;
   text-align:center;
   align-items: center;
@@ -155,5 +158,5 @@ body, html {
 }
 
 #cardword{
-  font-family: "San Francisco"
+  font-family: 'Montserrat', sans-serif;
 }

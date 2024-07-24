@@ -35,12 +35,32 @@ function typewriterEffect(eventTarget, dataValue) {
 
 
 
+// Initialize a variable to keep track of the current state
+let toggle = false;
+
+typewriterEffect(document.getElementById("fakepassword"), "MY WONDERLAND");
+
+// Set up the interval to run every 3 seconds (3000 milliseconds)
+setInterval(() => {
+    if (toggle) {
+      typewriterEffect(document.getElementById("fakepassword"), "MY WONDERLAND");
+    } else {
+      typewriterEffect(document.getElementById("fakepassword"), "XXXXXXXXXXXXX");
+    }
+
+    // Toggle the state for the next iteration
+    toggle = !toggle;
+}, 3000);
+
+
 // Function to handle scroll events
 function handleScroll() {
   scrollY = window.scrollY || window.pageYOffset;
   if(scrollYOld < 0 ){
     scrollYOld = 0;
   }
+
+  /*
   // Check if scrolling down and past 200px
   if (scrollY < 500 && scrollY > scrollYOld && !down) {
     down = true;
@@ -55,7 +75,7 @@ function handleScroll() {
     typewriterEffect(document.getElementById("fakepassword"), "*************");
 
   }
-
+  */
   const scaleFactor = 1 + (scrollY / 2000);
   const loginpage = document.getElementById('loginpage');
 
@@ -65,6 +85,11 @@ function handleScroll() {
     
     computerBorder.style.transform = `scale(${scaleFactor})`;
 
+    if(scrollY >1000){
+      var mark = 1+(1000/2000);
+      computerBorder.style.opacity = 1-((scaleFactor-mark)*1.5);
+    }
+    
 
   }
   
