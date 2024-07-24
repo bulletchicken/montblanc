@@ -7,7 +7,7 @@
 body {
     background: rgb(255, 249, 249);
     scroll-behavior: smooth;
-    overflow-y: hidden;
+    
 }
 
 
@@ -20,7 +20,6 @@ body {
     margin-top: -9vh;
     margin-left:-5%;
     pointer-events: none;
-    z-index: 2;
 }
 
 #loginpage{
@@ -30,25 +29,11 @@ body {
     display:flex;
     flex-direction: column;
     align-items: center;
-    min-height: 200vh;
-
-    position:relative;
-    perspective: 1px;
-    transform-style: preserve-3d;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-
-#hh2{
-    
-    width: 100vw;
-    height: 100vh;
-    background-color: brown;
-
-    transform-style: preserve-3d;
+    height: 200vh;
     
 }
+
+
 
 #loginBox{
     display:flex;
@@ -57,10 +42,7 @@ body {
     text-align: center;
     justify-content: center;
 
-    z-index: -1;
-    min-height:100%;
-    position:absolute;
-    transform: translateZ(-1px) scale(2);
+    margin-top: 15vh;
 }
 
 #profilepic{
@@ -127,3 +109,9 @@ a {
 
 
 
+#bg{
+    width: 100%;
+    height: 100vh;
+    background-color: brown;
+
+}
