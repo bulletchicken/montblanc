@@ -9,51 +9,55 @@
     
 </head>
 <body>
-    <img id = "computerborder" src="border.png">
-    <div class="smooth-scroll-wrapper">
+    
+    
+    <img id = "computerborder" src="borderC.png">
+    <section id ="loginpage">
+
+        <div id = "loginBox">
+            <img id = "profilepic" src = "profilepicture.png">
+            <h3 id = "username">Jeremy Su</h1>
+            <div id = "loginbio">designer. hackathon enthusiast.</div>
+            <h2 id = "fakepassword" >*************</h2>
+        </div>
         
-        <section id ="loginpage">
 
-            <div id = "loginBox">
-                <img id = "profilepic" src = "profilepicture.png">
-                <h3 id = "username">Jeremy Su</h1>
-                <div id = "loginbio">designer. hackathon enthusiast.</div>
-                <div id = "fakepassword" >*************</div>
-            </div>
-            
+        <div class="arrow bounce">
+            <a class="fa fa-arrow-down fa-2x" href="#"></a>
+        </div>
 
-            <div class="arrow bounce">
-                <a class="fa fa-arrow-down fa-2x" href="#"></a>
-            </div>
+    </section>
 
-        </section>
 
-        <div>
+    <div id = "titlecard">
+        <div class="scrollDist"></div>
+        <div class="main">
+            <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                <mask id="m">
+                <g class="cloud1">
+                    <rect fill="#fff" width="100%" height="801" y="799" />
+                    <image xlink:href="https://assets.codepen.io/721952/cloud1Mask.jpg" width="1200" height="800"/>
+                </g>
+                </mask>
+                
+                <image class="sky" xlink:href="sky.jpg"style="object-fit: cover;" />
 
+                <image class="cloud1" xlink:href="https://assets.codepen.io/721952/cloud1.png" width="1200" height="800"/>
+                <image class="cloud3 flying" xlink:href="https://assets.codepen.io/721952/cloud3.png" width="1200" height="800"/>
+                <text id = "cardword" fill="#fff" x="33%" y="200">DREAMS</text>
+
+                <g mask="url(#m)">
+                <rect fill="#fff" width="100%" height="100%" />      
+                <text id = "cardword" x="33%" y="200" fill="#162a43">REALITY</text>
+                </g>
+
+            </svg>
         </div>
     </div>
-    <script>
-        const body = document.body,
-            scrollWrap = document.getElementsByClassName("smooth-scroll-wrapper")[0],
-            height = scrollWrap.getBoundingClientRect().height - 1,
-            speed = 0.04;
-
-        var offset = 0;
-
-        body.style.height = Math.floor(height) + "px";
-
-        function smoothScroll() {
-            offset += (window.pageYOffset - offset) * speed;
-
-            var scroll = "translateY(-" + offset + "px) translateZ(0)";
-            scrollWrap.style.transform = scroll;
-
-            callScroll = requestAnimationFrame(smoothScroll);
-        }
-
-        smoothScroll();
-    </script>
-    
-    <script src = "movingstuff.js"></script>
+<!-- partial -->
+<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+<script src='https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js'></script>
+<script src='https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js'></script>
+<script src = "movingstuff.js"></script>
 </body>
 </html>

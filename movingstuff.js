@@ -1,3 +1,5 @@
+
+
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let interval = null;
 let scrollYOld = 0;
@@ -40,38 +42,44 @@ function handleScroll() {
     scrollYOld = 0;
   }
   // Check if scrolling down and past 200px
-  if (scrollY < 300 && scrollY > scrollYOld && !down) {
+  if (scrollY < 500 && scrollY > scrollYOld && !down) {
     down = true;
     console.log("reveal");
     // Call typewriterEffect when "reveal" is printed
-    typewriterEffect(document.getElementById("fakepassword"), "my wonderland");
+    typewriterEffect(document.getElementById("fakepassword"), "MY WONDERLAND");
   }
   // Check if scrolling up and within 200px
-  else if (scrollY > 300 && scrollY < scrollYOld && down) {
+  else if (scrollY > 400 && scrollY < scrollYOld && down) {
     down = false;
     console.log("hide");
     typewriterEffect(document.getElementById("fakepassword"), "*************");
 
   }
 
-  if(scrollY < 1000){
+  const scaleFactor = 1 + (scrollY / 2000);
+  const loginpage = document.getElementById('loginpage');
+
+
+  if(scrollY < 3000){
     const computerBorder = document.getElementById('computerborder');
-    const scaleFactor = 1 + (scrollY / 1000);
+    
     computerBorder.style.transform = `scale(${scaleFactor})`;
 
 
-
-    const loginpage = document.getElementById('loginpage');
-
-    loginpage.style.transform = `scale(${scaleFactor})`;
-
+  }
+  
+  if(scrollY < 800){
     
-    /*
-    const baseWidth = 83; // base width in pixels
-    const widthIncreaseFactor = 0.5; // width increase per pixel scrolled
-    const newWidth = baseWidth + (scrollY * widthIncreaseFactor);
-    loginpage.style.width = `${newWidth}%`
-    */
+
+    loginpage.style.transform = `scale(${scaleFactor}) translateY(${scrollY*0.02}%)`;
+  }
+
+  const titlecard = document.getElementById('titlecard');
+  if(scrollY > 400){
+    titlecard.style.zIndex = "10";
+    
+  } else{
+    titlecard.style.zIndex = "0";
   }
 
 
@@ -80,3 +88,12 @@ function handleScroll() {
 
 // Assign the handleScroll function to the scroll event
 window.addEventListener('scroll', handleScroll);
+
+
+
+gsap.set('.main', {position:'fixed', background:'#fff', width:'100%', maxWidth:'1200px', height:'100%', top:0, left:'50%', x:'-50%', zIndex:'-3'})
+gsap.set('.scrollDist', {width:'100%', height:'100%'})
+gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:1}})
+    .fromTo('.sky', {y:0},{y:-200}, 0)
+    .fromTo('.cloud1', {y:100},{y:-800}, 0)
+    .fromTo('.cloud3', {y:-50},{y:-650}, 0)
