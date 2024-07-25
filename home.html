@@ -11,7 +11,7 @@
 <body>
     
     
-    <img id = "computerborder" src="borderT.png">
+    <img id = "computerborder" src="borderC.png">
     <section id ="loginpage">
 
         <div id = "loginBox">
@@ -29,29 +29,65 @@
     </section>
 
 
-    <div id = "titlecard">
+    <section id = "titlecard">
         <div class="scrollDist"></div>
         <div class="main">
             <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
                 <mask id="m">
                 <g class="cloud1">
-                    <rect fill="#fff" width="100%" height="801" y="799" />
+                    <rect fill="#fff" width="100%" height="801" y="799" style = "z-index: 10;" />
                     <image xlink:href="https://assets.codepen.io/721952/cloud1Mask.jpg" width="1200" height="800"/>
                 </g>
                 </mask>
                 
-                <image class="sky" xlink:href="sky.jpg"style="object-fit: cover;" />
+                <image class="sky" xlink:href="sky.png"style="object-fit: cover;" />
 
-                <image class="cloud1" xlink:href="https://assets.codepen.io/721952/cloud1.png" width="1200" height="800"/>
-                <image class="cloud3 flying" xlink:href="https://assets.codepen.io/721952/cloud3.png" width="1200" height="800"/>
-                <text id = "cardword" fill="#fff" x="33%" y="200">DREAMS</text>
+                <image class="cloud1" xlink:href="cloud1.png" width="1200" height="800"/>
+                <image class="cloud2" xlink:href="https://assets.codepen.io/721952/cloud2.png" width="1200" height="800"/>    
+                <image id="backcloud" class="cloud3 flying" xlink:href="cloud3.png" width="1200" height="800"/>
+                <text id = "cardword" fill="#fff" x="35%" y="300">i turn</text>
+                <text id = "cardword" fill="#fff" x="31%" y="400">DREAMS</text>
 
                 <g mask="url(#m)">
                 <rect fill="#fff" width="100%" height="100%" />      
-                <text id = "cardword" x="33%" y="200" fill="#162a43">REALITY</text>
-                </g>
+                <text id = "cardword" x="40%" y="300" fill="#162a43">into</text>
+                <text id = "cardword" x="31%" y="400" fill="#162a43">REALITY</text>
+                <image class="bounce2" xlink:href="hawkeye.png" width="800" height="400" x="-170" y="-20" />
+                <image class="bounce3" xlink:href="prosthetic.png" width="800" height="500" x="550" y="250" />
+            </g>
 
+                
             </svg>
+        </div>
+    </section>
+
+    <section id = "gallery">
+        <div class = "window window1">
+            <div class = "windowbar windowbar1">
+                <div class = "macButton red"></div>
+                <div class = "macButton yellow"></div>
+                <div class = "macButton green"></div>
+                <div id = "windowname"> notes </div>
+            </div>
+            <div class="windowmain">
+                through my 
+                <div class="typing">
+                PROJECTS
+                </div>
+            </div>
+        </div>
+
+
+        <div class = "window window2 bounce3">
+            <div class = "windowbar windowbar2">
+                <div class = "macButton red"></div>
+                <div class = "macButton yellow"></div>
+                <div class = "macButton green"></div>
+                <div id = "windowname"> Miami Hack Week </div>
+            </div>
+            <div class="windowmain2">
+                <img id = "lucy" src = "lucy.png">
+            </div>
         </div>
     </div>
 <!-- partial -->

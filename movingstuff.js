@@ -53,6 +53,10 @@ setInterval(() => {
 }, 3000);
 
 
+
+
+
+
 // Function to handle scroll events
 function handleScroll() {
   scrollY = window.scrollY || window.pageYOffset;
@@ -82,13 +86,29 @@ function handleScroll() {
 
   if(scrollY < 3000){
     const computerBorder = document.getElementById('computerborder');
+    const backcloud = document.getElementById('backcloud');
     
+
+    
+
     computerBorder.style.transform = `scale(${scaleFactor})`;
 
     if(scrollY >1000){
       var mark = 1+(1000/2000);
       computerBorder.style.opacity = 1-((scaleFactor-mark)*1.5);
+      
+      backcloud.style.transform = `translateY(0)`;
+      backcloud.style.transform = `translateX(0)`;
+      backcloud.classList.remove('flying');
+    } else{
+      backcloud.style.transform = `translateY(0)`;
+      backcloud.style.transform = `translateX(0)`;
     }
+
+    if(scrollY < 200){
+      backcloud.classList.add('flying');
+    }
+
     
 
   }
@@ -106,6 +126,7 @@ function handleScroll() {
   } else{
     titlecard.style.zIndex = "0";
   }
+  
 
 
   scrollYOld = scrollY;
@@ -116,9 +137,48 @@ window.addEventListener('scroll', handleScroll);
 
 
 
-gsap.set('.main', {position:'fixed', background:'#fff', width:'100%', maxWidth:'1200px', height:'100%', top:0, left:'50%', x:'-50%', zIndex:'-3'})
-gsap.set('.scrollDist', {width:'100%', height:'100%'})
+gsap.set('.main', {position:'fixed', background:'#fff', width:'100%', maxWidth:'100%', height:'100%', top:0, left:'50%', x:'-50%', zIndex:'-3'})
+gsap.set('.scrollDist', {width:'100%', height:'200%'})
 gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'bottom bottom', scrub:1}})
     .fromTo('.sky', {y:0},{y:-200}, 0)
     .fromTo('.cloud1', {y:100},{y:-800}, 0)
+    .fromTo('.cloud2', {y:-150},{y:-500}, 0)
     .fromTo('.cloud3', {y:-50},{y:-650}, 0)
+
+
+
+
+
+// type js plugin
+let typeJsText = document.querySelector(".typeJsText");
+let textArray = typeJsText.dataset.typetext.split("");
+let counter = -1;
+
+let showOff = 0;
+
+typeJsText.innerHTML = "";
+
+function typeJs() {
+  if (counter < typeJsText.dataset.typetext.length) {
+    counter++;
+    typeJsText.innerHTML += typeJsText.dataset.typetext.charAt(counter);
+    textArray = typeJsText.dataset.typetext.split("");
+  } else {
+    if (textArray.length == typeJsText.dataset.typetext.length) {
+      showOff = 2000;
+      console.log(showOff);
+    }
+    textArray.pop();
+    typeJsText.innerHTML = textArray.join("");
+    if (textArray.length == 0) {
+      counter = -1;
+
+    }
+  }
+}
+
+
+setInterval(() => {
+  showOff=0;
+  typeJs();
+}, Math.max(10+(Math.random()*400)), showOff);

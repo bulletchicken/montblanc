@@ -1,14 +1,27 @@
 @font-face {
     font-family: "San Francisco";
-    font-weight: 400;
+    font-weight: 900;
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
   }
+  
+  @font-face {
+    font-family: 'Stora Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Stora Regular'), url('Stora.woff') format('woff');
+    }
+  @font-face {
+    font-family: 'HempaSans-Black';
+    font-style: normal;
+    font-weight: normal;
+    src: local('HempaSans-Black'), url('HempaSans-Black.woff') format('woff');
+    }
 
   @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
   
 body {
-    background: skyblue;
+    background: rgb(33, 33, 33);
     
 }
 
@@ -25,15 +38,14 @@ body {
 
 #loginpage{
   background: linear-gradient(to bottom, rgba(255, 249, 249, 1) 25%, rgba(255, 249, 249, 0) 100%);
-    margin:10vh;
-    margin-top: 15vh;
-    padding-top: 5vh;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    height: 120vh;
-    width:83%;
-    z-index: 10;
+  margin-top: 15vh;
+  padding-top: 5vh;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120vh;
+  width:100%;
+  z-index: 10;
 }
 
 
@@ -56,7 +68,7 @@ body {
     margin:5%;
     font-size:4rem;
     color: black;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Stora Regular';
 }
 
 #fakepassword {
@@ -81,12 +93,12 @@ body {
 }
 
 a {
-    
     color: black;
     text-decoration: none;
 }
 
 .arrow {
+  
   z-index: 10;
   text-align: center;
   margin: 3% 0;
@@ -100,15 +112,15 @@ a {
 
 @keyframes bounce {
     0% {
-      transform: translateY(0);
+      transform: translateY(-30px);
     }
   
     50% {
-      transform: translateY(60px);
+      transform: translateY(30px);
     }
   
     100% {
-      transform: translateY(0);
+      transform: translateY(-30px);
     }
   }
 
@@ -117,6 +129,7 @@ a {
     -moz-animation: flying 4s infinite;
     -webkit-animation: flying 4s infinite;
     animation: flying 4s infinite ease-in-out;
+    
   }
   
   
@@ -142,12 +155,12 @@ a {
 
 body, html {
   height:100%;
-  font-family: 'Montserrat', sans-serif;
+
 
 }
 #titlecard{
-  height:400vh;
-  font-family: 'Montserrat', sans-serif;
+  height:200vh;
+  font-family: 'Stora Regular';
   font-size:100px;
   text-align:center;
   align-items: center;
@@ -158,5 +171,186 @@ body, html {
 }
 
 #cardword{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Stora Regular';
+}
+
+#backcloud{
+  transition: 0.2s linear all;
+}
+
+#gallery{
+  width:100%;
+  height:200vh;
+  overflow-x: hidden;
+  z-index: 10;
+}
+
+.window{
+  border-style:solid;
+  border-radius: 3%;
+  overflow: hidden;/*idk how but it works for removing extra on rounded corners*/
+  box-shadow: 10px 10px grey;
+}
+
+.windowbar{
+  background-color: rgb(163, 211, 255);
+  width:100%;
+  height:4vw;
+  border-style:solid;
+  border-width:0 0 3px 0;
+  display:flex;
+  z-index: -1;
+  align-items: center;
+}
+
+.window1{
+  margin-left:20%;
+  width:60vw;
+  height:30vw;
+}
+
+.windowbar1{
+  background-color: rgb(163, 211, 255);
+  width:100%;
+  height:4vw;
+  border-style:solid;
+  border-width:0 0 3px 0;
+  display:flex;
+  z-index: -1;
+  align-items: center;
+}
+
+#windowname{
+  margin-left:25%;
+}
+
+.windowmain{
+  width:100%;
+  height:100%;
+  padding-left:10%;
+  padding-top:8%;
+  text-align: left;
+  background-color:rgb(255, 255, 245);
+  z-index:-1;
+  font-size: 4rem;
+  font-family: "HempaSans-Black";
+}
+
+.macButton{
+  border-radius: 50%;
+  width:4%;
+  height:60%;
+  margin:1.5%;
+}
+
+.red{
+  background-color: rgb(255, 70, 70);
+}
+.yellow{
+  background-color: rgb(255, 221, 0);
+}
+.green{
+  background-color: rgb(40, 213, 89);
+}
+
+
+.typing {
+  width: 8.85ch;
+  animation: typing 2s steps(8), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-size: 1.5em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+#gallery{
+  
+}
+
+.bounce2{
+  -moz-animation: bounce2 4s infinite;
+  -webkit-animation: bounce2 4s infinite;
+  animation: bounce2 4s infinite ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.bounce2:hover{
+  transform: scale(1.2);
+}
+
+
+@keyframes bounce2 {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.bounce3{
+  -moz-animation: bounce3 3s infinite;
+  -webkit-animation: bounce3 3s infinite;
+  animation: bounce3 3s infinite ease-in-out;
+}
+
+@keyframes bounce3 {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-40px);
+  }
+
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.window2{
+  margin-left:5%;
+  margin-top:20vh;
+  width:60vw;
+  height:45vw;
+  border-style:solid;
+  border-radius: 3%;
+  overflow: hidden;/*idk how but it works for removing extra on rounded corners*/
+  box-shadow: 10px 10px grey;
+}
+
+.windowbar2{
+  background-color: rgb(163, 211, 255);
+  width:100%;
+  height:4vw;
+  border-style:solid;
+  border-width:0 0 3px 0;
+  display:flex;
+  z-index: -1;
+  align-items: center;
+}
+
+.windowmain2{
+
+}
+#lucy{
+  
+  width:100%;
 }
