@@ -71,6 +71,7 @@ function handleScroll() {
   const loginpage = document.getElementById('loginpage');
 
   if(scrollY==0){
+    clearInterval(intervalId);
     intervalId = setInterval(toggleTypewriter, 2000);
   }
   else {
