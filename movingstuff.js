@@ -49,6 +49,7 @@ const toggleTypewriter = () => {
 
 //put my constants here
 const computerBorder = document.getElementById('computerborder');
+const retro = document.getElementById('retro');
 const backcloud = document.getElementById('backcloud');
 
 const typing = document.getElementById('typing');
@@ -91,6 +92,7 @@ function handleScroll() {
     if(scrollY >1000){
       var mark = 1+(1000/2000);
       computerBorder.style.opacity = 1-((scaleFactor-mark)*1.5);
+      retro.style.opacity = 0.15-((scaleFactor-mark)*1.7);
       
       backcloud.style.transform = `translateY(0)`;
       backcloud.style.transform = `translateX(0)`;

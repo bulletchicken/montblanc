@@ -30,6 +30,7 @@ body {
   height:100%;
 }
 
+
 #glow{
   position: absolute;
   width:59vw;
@@ -39,32 +40,49 @@ body {
   margin-top:16.2vh;
   border-radius: 3%;
   overflow:hidden;
-  opacity:15%;
-
-  animation: glow 3s infinite;
-  box-shadow: 0 0 150px 30px white;
+  animation: glow 4s infinite;
+  box-shadow: 0 0 150px 50px #eaf9ff;
 }
+
+#retro{
+  opacity:15%;
+}
+
 
 
 @keyframes glow {
     0% {
     }
-  
+  /*
     15% {
-      box-shadow: 0 0 50px 0px white;
+      box-shadow: 0 0 50px 0px #eaf9ff;
     }
 
     30% {
-      box-shadow: 0 0 120px 40px white;
+      box-shadow: 0 0 120px 40px #eaf9ff;
     }
 
     70%{
-      box-shadow: 0 0 50px 0px white;
+      box-shadow: 0 0 50px 0px #eaf9ff;
     }
-  
+  */
+    40%{
+      box-shadow: 0 0 50px 0px #eaf9ff;
+    }
+
+    50%{
+      box-shadow: 0 0 50px 5px #eaf9ff;
+    }
+
+    70%{
+      box-shadow: 0 0 50px 0px #eaf9ff;
+    }
+
     100% {
     }
+
   }
+
 
 
 
