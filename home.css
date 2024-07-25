@@ -34,6 +34,7 @@ body {
     position:fixed;
     pointer-events: none;
     z-index: 2;
+    margin-left:0%;
 }
 
 #loginpage{
@@ -67,7 +68,7 @@ body {
 #username{
     margin:5%;
     font-size:4rem;
-    color: black;
+    color: rgb(22, 42, 67);
     font-family: 'Stora Regular';
 }
 
@@ -90,6 +91,7 @@ body {
     margin-top:-3%;
     margin-bottom: 5%;
     font-size:1.5rem;
+    font-family: "HempaSans-Black";
 }
 
 a {
@@ -180,8 +182,8 @@ body, html {
 
 #gallery{
   width:100%;
-  height:200vh;
-  overflow-x: hidden;
+  height:100vh;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -189,7 +191,7 @@ body, html {
   border-style:solid;
   border-radius: 3%;
   overflow: hidden;/*idk how but it works for removing extra on rounded corners*/
-  box-shadow: 10px 10px grey;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.4);
 }
 
 .windowbar{
@@ -204,9 +206,9 @@ body, html {
 }
 
 .window1{
-  margin-left:20%;
+  margin-left:30%;
   width:60vw;
-  height:30vw;
+  height:40vw;
 }
 
 .windowbar1{
@@ -221,7 +223,7 @@ body, html {
 }
 
 #windowname{
-  margin-left:25%;
+  margin-left:23%;
 }
 
 .windowmain{
@@ -254,9 +256,9 @@ body, html {
 }
 
 
-.typing {
+#typing {
   width: 8.85ch;
-  animation: typing 2s steps(8), blink .5s step-end infinite alternate;
+  
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -283,12 +285,8 @@ body, html {
   -moz-animation: bounce2 4s infinite;
   -webkit-animation: bounce2 4s infinite;
   animation: bounce2 4s infinite ease-in-out;
-  transition: 1s ease-in-out;
 }
 
-.bounce2:hover{
-  transform: scale(1.2);
-}
 
 
 @keyframes bounce2 {
@@ -298,6 +296,7 @@ body, html {
 
   50% {
     transform: translateY(40px);
+    transform: rotate(10deg);
   }
 
   100%{
@@ -317,7 +316,9 @@ body, html {
   }
 
   50% {
-    transform: translateY(-40px);
+    transform: translateY(-20px);
+    transform: rotate(-3deg);
+    
   }
 
   100%{
@@ -325,15 +326,16 @@ body, html {
   }
 }
 
+
 .window2{
+  position: absolute;
   margin-left:5%;
-  margin-top:20vh;
+  margin-top:-5vh;
   width:60vw;
   height:45vw;
   border-style:solid;
   border-radius: 3%;
   overflow: hidden;/*idk how but it works for removing extra on rounded corners*/
-  box-shadow: 10px 10px grey;
 }
 
 .windowbar2{
@@ -354,3 +356,25 @@ body, html {
   
   width:100%;
 }
+
+
+
+
+#projects{
+  height:200vh;
+  background-color: #d6edff;
+  background-image:
+  repeating-linear-gradient(
+      to right, transparent 0 100px,
+      #25283b22 100px 101px
+  ),
+  repeating-linear-gradient(
+      to bottom, transparent 0 100px,
+      #25283b22 100px 101px
+  );
+
+
+  -webkit-mask-image: linear-gradient(transparent 30%, black 100%);
+  mask-image: linear-gradient(transparent 0%, black 60%);
+}
+

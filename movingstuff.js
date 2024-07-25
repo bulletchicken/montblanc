@@ -2,12 +2,7 @@
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let interval = null;
-let scrollYOld = 0;
-let scrollY = 0;
-let down = false; // Track scrolling direction
 
-
-// Refactored typewriterEffect function
 function typewriterEffect(eventTarget, dataValue) {
   let iteration = 0;
 
@@ -36,58 +31,57 @@ function typewriterEffect(eventTarget, dataValue) {
 
 
 // Initialize a variable to keep track of the current state
-let toggle = false;
+let toggle = true;
+const fakepassword = document.getElementById("fakepassword");
 
-typewriterEffect(document.getElementById("fakepassword"), "MY WONDERLAND");
-
-// Set up the interval to run every 3 seconds (3000 milliseconds)
-setInterval(() => {
-    if (toggle) {
-      typewriterEffect(document.getElementById("fakepassword"), "MY WONDERLAND");
-    } else {
-      typewriterEffect(document.getElementById("fakepassword"), "XXXXXXXXXXXXX");
-    }
-
-    // Toggle the state for the next iteration
-    toggle = !toggle;
-}, 3000);
+const toggleTypewriter = () => {
+  if (toggle) {
+    typewriterEffect(fakepassword, "WELCOME!");
+  } else {
+    typewriterEffect(fakepassword, "XXXXXXXX");
+  }
+  toggle = !toggle; // Toggle the state for the next iteration
+};
 
 
 
 
 
+//put my constants here
+const computerBorder = document.getElementById('computerborder');
+const backcloud = document.getElementById('backcloud');
 
-// Function to handle scroll events
+const typing = document.getElementById('typing');
+
+const prosthetic = document.getElementById('prosthetic');
+
+const cardword2 = document.getElementById('cardword2');
+const cardword3 = document.getElementById('cardword3');
+
+const titlecard = document.getElementById('titlecard');
+
+
+let intervalId = setInterval(toggleTypewriter, 2000);;
+
+
 function handleScroll() {
-  scrollY = window.scrollY || window.pageYOffset;
-  if(scrollYOld < 0 ){
-    scrollYOld = 0;
-  }
+  let scrollY = window.scrollY;
 
-  /*
-  // Check if scrolling down and past 200px
-  if (scrollY < 500 && scrollY > scrollYOld && !down) {
-    down = true;
-    console.log("reveal");
-    // Call typewriterEffect when "reveal" is printed
-    typewriterEffect(document.getElementById("fakepassword"), "MY WONDERLAND");
-  }
-  // Check if scrolling up and within 200px
-  else if (scrollY > 400 && scrollY < scrollYOld && down) {
-    down = false;
-    console.log("hide");
-    typewriterEffect(document.getElementById("fakepassword"), "*************");
-
-  }
-  */
   const scaleFactor = 1 + (scrollY / 2000);
   const loginpage = document.getElementById('loginpage');
 
+  if(scrollY==0){
+    intervalId = setInterval(toggleTypewriter, 2000);
+  }
+  else {
+    console.log("stop");
+    clearInterval(intervalId);
+    intervalId = null;
+  }
+
+
 
   if(scrollY < 3000){
-    const computerBorder = document.getElementById('computerborder');
-    const backcloud = document.getElementById('backcloud');
-    
 
     
 
@@ -100,6 +94,10 @@ function handleScroll() {
       backcloud.style.transform = `translateY(0)`;
       backcloud.style.transform = `translateX(0)`;
       backcloud.classList.remove('flying');
+
+
+      
+      typing.style.animation = `typing 2s steps(8), blink .5s step-end infinite alternate;`;
     } else{
       backcloud.style.transform = `translateY(0)`;
       backcloud.style.transform = `translateX(0)`;
@@ -113,13 +111,39 @@ function handleScroll() {
 
   }
   
+  if (scrollY > 2420){
+    
+    prosthetic.style.opacity = `0`;
+  } else {
+    prosthetic.style.opacity = `100%`;
+  }
+
+
+
+  if (scrollY > 2500){
+    
+    cardword2.textContent=" ";
+    cardword3.textContent=" ";
+  } else {
+    cardword2.textContent="into";
+    cardword3.textContent="REALITY";
+  }
+
+
+  if (scrollY > 2900){
+    const hawkeye = document.getElementById('hawkeye');
+    hawkeye.style.opacity = `0`;
+  } else {
+    hawkeye.style.opacity = `100%`;
+  }
+  
   if(scrollY < 800){
     
-
     loginpage.style.transform = `scale(${scaleFactor}) translateY(${scrollY*0.02}%)`;
   }
 
-  const titlecard = document.getElementById('titlecard');
+
+  
   if(scrollY > 400){
     titlecard.style.zIndex = "10";
     
@@ -145,40 +169,3 @@ gsap.timeline({scrollTrigger:{trigger:'.scrollDist', start:'top top', end:'botto
     .fromTo('.cloud2', {y:-150},{y:-500}, 0)
     .fromTo('.cloud3', {y:-50},{y:-650}, 0)
 
-
-
-
-
-// type js plugin
-let typeJsText = document.querySelector(".typeJsText");
-let textArray = typeJsText.dataset.typetext.split("");
-let counter = -1;
-
-let showOff = 0;
-
-typeJsText.innerHTML = "";
-
-function typeJs() {
-  if (counter < typeJsText.dataset.typetext.length) {
-    counter++;
-    typeJsText.innerHTML += typeJsText.dataset.typetext.charAt(counter);
-    textArray = typeJsText.dataset.typetext.split("");
-  } else {
-    if (textArray.length == typeJsText.dataset.typetext.length) {
-      showOff = 2000;
-      console.log(showOff);
-    }
-    textArray.pop();
-    typeJsText.innerHTML = textArray.join("");
-    if (textArray.length == 0) {
-      counter = -1;
-
-    }
-  }
-}
-
-
-setInterval(() => {
-  showOff=0;
-  typeJs();
-}, Math.max(10+(Math.random()*400)), showOff);
