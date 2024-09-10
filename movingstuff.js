@@ -113,7 +113,16 @@ function handleScroll() {
     
 
   }
-  
+
+  const bg = document.getElementsByClassName('main');
+if(scrollY > 3200) {
+  console.log(bg);
+  bg[0].style.position = ``;
+} else{
+  bg[0].style.position = `fixed`;
+}
+
+/*  
   if (scrollY > 2420){
     
     prosthetic.style.opacity = `0`;
@@ -140,6 +149,8 @@ function handleScroll() {
     hawkeye.style.opacity = `100%`;
   }
   
+  */
+ 
   if(scrollY < 800){
     
     loginpage.style.transform = `scale(${scaleFactor}) translateY(${scrollY*0.02}%)`;
